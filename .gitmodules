@@ -1,6 +1,6 @@
 [submodule "stat-dash-web"]
 	path = stat-dash-web
-	url = git@github.com:BenGlasser/stat-dash-web.git
+	url = https://github.com/BenGlasser/stat-dash-web.git
 [submodule "stat-dash-back"]
 	path = stat-dash-back
-	url = git@github.com:BenGlasser/stat-dash-back.git
+	url = https://github.com/BenGlasser/stat-dash-back.git
