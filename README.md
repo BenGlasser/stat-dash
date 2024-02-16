@@ -10,6 +10,7 @@
       - [Spin up postgres](#spin-up-postgres)
       - [Add of refresh the Roit API key](#add-of-refresh-the-roit-api-key)
       - [Run the backend](#run-the-backend)
+      - [Run the frontend](#run-the-frontend)
   - [Caveats](#caveats)
 
 
@@ -76,9 +77,6 @@ Then fire up the phoenix server with
 ```
 mix phx.server
 ```
-or if you want to set the RIOT_API_KEY as part of this command
-```
-RIOT_API_KEY=<INSERT YOUR KEY HERE> mix phx.server
 
 If you don't see any errors you're good to go.
 
