@@ -8,8 +8,8 @@
       - [Clone this directory](#clone-this-directory)
       - [Init and update the git submodules](#init-and-update-the-git-submodules)
       - [Spin up postgres](#spin-up-postgres)
+      - [Add of refresh the Roit API key](#add-of-refresh-the-roit-api-key)
       - [Run the backend](#run-the-backend)
-      - [Run the frontend](#run-the-frontend)
   - [Caveats](#caveats)
 
 
@@ -30,6 +30,7 @@ The set up instructions below depend on docker, asdf, and git
  * clone this directory
  * init and update the git submodules
  * build and run the docker image found in [stat-dash-postgres](./stat-dash-postgres/)
+ * Add or refresh the API key for the Roit API
  * run the backend from the root of [stat-dash-back](./stat-dash-back/)
  * run the frontend from the root of [stat-dash-web](./stat-dash-web/)
  * navigate to http://localhost:3000 and search for some summoners 
@@ -56,6 +57,14 @@ docker compose up postgres -d
    * shutting down your local instance (probably the easiest)
    * remapping the port binding in [docker-compose.yaml](https://github.com/BenGlasser/stat-dash/blob/main/docker-compose.yaml#L20)
    * altering the configs in [stat-dash-back](./stat-dash-back) to connect to a local instance of postgres
+#### Add of refresh the Roit API key 
+I've left my API key in here which is probably a bad idea, but it's only good for 24 hours so chances are you'll need to refresh it at some point.  The the location where you'll want to add it can be found here  
+
+ 👉👉👉 https://github.com/BenGlasser/stat-dash-back/blob/b4114454a7d3ad467633d322ec45aa0415df63b7/config/config.exs#L29
+
+
+you'll notice that this config is also set up to read the environment variable `RIOT_API_KEY` so you can export your key before you compile the backend if you prefer.
+
 #### Run the backend
 Its time to run the phoenix server 
 
@@ -67,6 +76,10 @@ Then fire up the phoenix server with
 ```
 mix phx.server
 ```
+or if you want to set the RIOT_API_KEY as part of this command
+```
+RIOT_API_KEY=<INSERT YOUR KEY HERE> mix phx.server
+
 If you don't see any errors you're good to go.
 
 #### Run the frontend
@@ -84,4 +97,6 @@ there should also be a graphiql server running at http://localhost:4000/gql/Grap
 and a liveview server for viewing backend health at http://localhost:4000/dev/dashboard/home
 
 ## Caveats
-The summoner search currently only works for the north american region.  So if a search for a summoner doesn't return any results it's likely that summoner is located in another region.
+* The summoner search currently only works for the north american region.  So if a search for a summoner doesn't return any results it's likely that summoner is located in another region.
+* the database isn't used currently.  the project will probably work fine without it, but ecto is going to yell at you insescently that it is unable to conect.
+* There is no rate limiting in here so if you search fast enough you could possible get capped out.  I don't remember what the limits are but I think you'd have to type pretty fast to make that happen.
