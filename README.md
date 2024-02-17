@@ -45,6 +45,7 @@ git clone https://github.com/BenGlasser/stat-dash.git
 ```
 #### Init and update the git submodules
 ```
+cd stat-dash && \
 git submodule init && \
 git submodule update
 ```
