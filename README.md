@@ -8,7 +8,7 @@
       - [Clone this directory](#clone-this-directory)
       - [Init and update the git submodules](#init-and-update-the-git-submodules)
       - [Spin up postgres](#spin-up-postgres)
-      - [Add of refresh the Roit API key](#add-of-refresh-the-roit-api-key)
+      - [Add or refresh the Roit API key](#add-or-refresh-the-roit-api-key)
       - [Run the backend](#run-the-backend)
       - [Run the frontend](#run-the-frontend)
   - [Caveats](#caveats)
@@ -59,7 +59,7 @@ docker compose up postgres -d
    * shutting down your local instance (probably the easiest)
    * remapping the port binding in [docker-compose.yaml](https://github.com/BenGlasser/stat-dash/blob/main/docker-compose.yaml#L20)
    * altering the configs in [stat-dash-back](./stat-dash-back) to connect to a local instance of postgres
-#### Add of refresh the Roit API key 
+#### Add or refresh the Roit API key 
 I've left my API key in here which is probably a bad idea, but it's only good for 24 hours so chances are you'll need to refresh it at some point.  The the location where you'll want to add it can be found here  
 
  👉👉👉 https://github.com/BenGlasser/stat-dash-back/blob/b4114454a7d3ad467633d322ec45aa0415df63b7/config/config.exs#L29
