@@ -12,6 +12,7 @@
       - [Run the backend](#run-the-backend)
       - [Run the frontend](#run-the-frontend)
   - [Caveats](#caveats)
+  - [Improvements](#improvements)
 
 
 ## Introduction
@@ -98,3 +99,9 @@ and a liveview server for viewing backend health at http://localhost:4000/dev/da
 * The summoner search currently only works for the north american region.  So if a search for a summoner doesn't return any results it's likely that summoner is located in another region.
 * the database isn't used currently.  the project will probably work fine without it, but ecto is going to yell at you insescently that it is unable to conect.
 * There is no rate limiting in here so if you search fast enough you could possible get capped out.  I don't remember what the limits are but I think you'd have to type pretty fast to make that happen.
+
+## Improvements
+There are several improvements I would have liked to implement 
+* **A rate limiter**  Implementing a nice Generver to handle requests and meter them out like a leaky bucket would make this more rubust and capable of handling multiple users.
+* **caching of the API calls**  the front end does this in memory, but having that persist to the backend would also take strain off the rate limiter.
+* **local data storage** Currently the backend doen't do much except pass requests back and forth to the riot API.  Replicating the game data and storing it ourselves would let us do some server side analytics and data munging without hammering the API everytime we want to peak at some data. 
