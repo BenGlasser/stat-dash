@@ -16,7 +16,7 @@
 
 
 ## Introduction
-Submission for Full-Stack Take-Home Challenge: League of Legends Match Stats Dashboard
+League of Legends Match Stats Dashboard
 
 this project depends on an environment which supports 
 * nodejs 20.11.0
